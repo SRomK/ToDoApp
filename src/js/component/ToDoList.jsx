@@ -24,3 +24,9 @@ const Home = () => {
 };
 
 export default Home;
+
+//las tasks se agregan cuando el usuario apreta enter
+//delete icon shows when task is hover
+//user can add how many tasks as he wants
+//When there is no tasks the list should say "No tasks, add a task"
+//There is no way to update a task, the user will have to delete and create again.
