@@ -13,6 +13,23 @@ const App = () => {
 		//operador SPRED sirve para hacer una copia del array, en este caso de listaTareas y le decimos que añada la nueva lista que le hemos pasado
 	};
 
+	const borrar = (id) => {
+		const listaFiltrada = listaTareas.filter((e, index) => index !== id);
+		setListaTareas(listaFiltrada);
+	};
+
+	const actualizarTarea = (id, tarea) => {
+		const listaActualizada = listaTareas.map((e, index) => {
+			if (index === id) {
+				e = tarea;
+			}
+
+			return e;
+		});
+
+		setListaTareas(listaActualizada);
+	};
+
 	//console.log(listaTareas);
 	return (
 		<>
@@ -20,8 +37,13 @@ const App = () => {
 				<TareaForm nuevaTarea={nuevaTarea} />
 
 				<div className="list">
-					{listaTareas.map((e) => (
-						<Tarea tarea={e} />
+					{listaTareas.map((e, index) => (
+						<Tarea
+							tarea={e}
+							borrar={borrar}
+							id={index}
+							editar={actualizarTarea}
+						/>
 					))}
 				</div>
 			</div>
